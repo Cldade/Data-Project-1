@@ -26,5 +26,14 @@ services:
     volumes:
       - data:/datafolder
 
+  jupyter:
+    image: 'jupyter/scipy-notebook'
+    ports: 
+      - '8888:8888'
+    volumes:
+      - data:/datafolder
+    command: "start-notebook.sh --NotebookApp.token='' --NotebookApp.password=''"
+    
+
 volumes:
   data:
