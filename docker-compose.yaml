@@ -12,7 +12,8 @@ services:
       - POSTGRES_PASSWORD=root
       - POSTGRES_DB=root
     volumes:
-      - data:/datafolder
+      - "./sql/init.sql:/docker-entrypoint-initdb.d/init.sql"
+ 
   
   pgadmin:
     image: dpage/pgadmin4
@@ -23,8 +24,8 @@ services:
       - "80:80"
     depends_on:
       - postgres
-    volumes:
-      - data:/datafolder
+    links:
+      - "postgres:pgsql-server"
 
   jupyter:
     image: 'jupyter/scipy-notebook'
