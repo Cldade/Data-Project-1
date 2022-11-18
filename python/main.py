@@ -11,7 +11,7 @@ conn = psycopg2.connect(
 cursor = conn.cursor()
 #Execute a query
 query = "INSERT INTO student (id , name) VALUES (%s,%s)"
-record_to_insert = (6, 'javi')
+record_to_insert = (7, 'javi')
 cursor.execute(query, record_to_insert)
 
 
