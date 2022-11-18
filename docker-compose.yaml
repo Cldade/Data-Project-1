@@ -1,0 +1,40 @@
+version: "3.8"
+services:
+
+  postgres:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - DATABASE_HOST=127.0.0.1
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=root
+    volumes:
+      - "./sql/init.sql:/docker-entrypoint-initdb.d/init.sql"
+ 
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "root@root.com"
+      PGADMIN_DEFAULT_PASSWORD: "root"
+    ports:
+      - "80:80"
+    depends_on:
+      - postgres
+    links:
+      - "postgres:pgsql-server"
+
+  jupyter:
+    image: 'jupyter/scipy-notebook'
+    ports: 
+      - '8888:8888'
+    volumes:
+      - data:/datafolder
+    command: "start-notebook.sh --NotebookApp.token='' --NotebookApp.password=''"
+    
+
+volumes:
+  data:

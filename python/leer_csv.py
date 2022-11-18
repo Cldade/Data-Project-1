@@ -2,6 +2,7 @@ import csv
 import psycopg2
 
 class insert_in_db_influencer:
+
     def load_csv_Influencers(self):
         self.archivo = open(r"Data-Project-1/csv/Influencers.csv", encoding="utf8", errors='ignore')
         self.filas = csv.reader(self.archivo, delimiter = ";")
@@ -18,9 +19,9 @@ class insert_in_db_influencer:
         self.connection.commit()
         self.connection.close()
 
-#ins_db = insert_in_db_influencer()
-#ins_db.load_csv_Influencers()
-#ins_db.insert_influencer()
+ins_db = insert_in_db_influencer()
+ins_db.load_csv_Influencers()
+ins_db.insert_influencer()
 
 class insert_in_db_productos:
     def load_csv_Productos(self):
@@ -42,3 +43,4 @@ class insert_in_db_productos:
 ins_db = insert_in_db_productos()
 ins_db.load_csv_Productos()
 ins_db.insert_productos()
+
