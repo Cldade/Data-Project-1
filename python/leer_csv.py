@@ -4,7 +4,7 @@ import psycopg2
 class insert_in_db_influencer:
 
     def load_csv_Influencers(self):
-        self.archivo = open(r"Data-Project-1/csv/Influencers.csv", encoding="utf8", errors='ignore')
+        self.archivo = open(r"csv/Influencers.csv", encoding="utf8", errors='ignore')
         self.filas = csv.reader(self.archivo, delimiter = ";")
         self.lista = list(self.filas)
         del (self.lista[0])
@@ -25,7 +25,7 @@ ins_db.insert_influencer()
 
 class insert_in_db_productos:
     def load_csv_Productos(self):
-        self.archivo = open(r"Data-Project-1/csv/Productos.csv", encoding="utf8", errors='ignore')
+        self.archivo = open(r"csv/Productos.csv", encoding="utf8", errors='ignore')
 
         self.filas = csv.reader(self.archivo, delimiter = ";")
         self.lista = list(self.filas)
