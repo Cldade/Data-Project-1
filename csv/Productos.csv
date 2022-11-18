@@ -1,0 +1,25 @@
+id_producto;nombre;stock;color;precioVenta;coste; categoria ;id_influencer;link_producto;link_linea
+1;Starkvind;225478;Blanco;129;51.6; Dormitorio ;1;https://www.ikea.com/es/es/p/starkvind-purificador-aire-blanco-inteligente-50461942/#content;https://www.ikea.com/es/es/ideas/la-clave-para-dormir-mejor-cada-noche-recgoxblj9z
+2;Eket ;220034;Blanco;129;51.6; Dormitorio ;1;https://www.ikea.com/es/es/p/eket-armario-blanco-00333947/;
+3;Dejsa;115476;Beige;45;18; Dormitorio ;1;https://www.ikea.com/es/es/p/dejsa-lampara-mesa-beige-blanco-opalo-vidrio-90404983/;
+4;Bergpalm;429639;Gris;29.99;12; Dormitorio ;1;https://www.ikea.com/es/es/p/bergpalm-funda-nordica-2-fundas-almohada-gris-raya-40423248/;
+5;Ulriksberg;150359;Marron;149;59.6; Salon ;2;https://www.ikea.com/es/es/p/ulriksberg-sillon-ratan-antracita-90434310/;https://www.ikea.com/es/es/ideas/ulriksberg-brimnes-landskrona-recj2owtbf6
+6;Brimnes;45258;Negro;199;79.6; Salon ;2;https://www.ikea.com/es/es/p/brimnes-vitrina-negro-10409871/;
+7;Landskrona;12985;Gris;699;279.6; Salon ;2;https://www.ikea.com/es/es/p/landskrona-sofa-3-plazas-gunnared-gris-oscuro-metal-s59270306/;
+8;Ekedalen;65339;Marron;199;79.6; Cocina ;3;https://www.ikea.com/es/es/p/ekedalen-mesa-extensible-marron-oscuro-40340804/;https://www.ikea.com/es/es/ideas/ekedalen-odger-nymane-evedal-rec34go5gad
+9;Odger;78359;Beige;89;35.6; Cocina ;3;https://www.ikea.com/es/es/p/odger-silla-blanco-beige-60359996/;
+10;Nymane;62488;Negro;39;15.6; Cocina ;3;https://www.ikea.com/es/es/p/nymane-lampara-techo-antracita-40407149/;
+11;Evedal;32753;Gris;169;67.6; Cocina ;3;https://www.ikea.com/es/es/p/evedal-lampara-techo-gris-90361257/;
+12;Idanas;45959;Blanco;149;59.6; Despacho ;4;https://www.ikea.com/es/es/p/idanas-mesa-ala-abatible-blanco-00487652/;https://www.ikea.com/es/es/ideas/una-mesa-que-sigue-el-ritmo-de-tu-vida-recch3vozhy
+13;Elloven ;83583;Blanco;29;11.6; Despacho ;4;https://www.ikea.com/es/es/p/elloven-base-monitor-con-cajon-blanco-50474770/;
+14;Bleckberget;83592;Beige;69;27.6; Despacho ;4;https://www.ikea.com/es/es/p/elloven-base-monitor-con-cajon-blanco-50474770/;
+15;Raskog;92493;Blanco;39;15.6; Despacho ;4;https://www.ikea.com/es/es/p/raskog-carrito-blanco-20382932/;
+16;Skurup ;72954;Negro;69;27.6; Despacho ;4;https://www.ikea.com/es/es/p/skurup-lampara-pie-lectura-negro-20471117/;
+17;Kermsund;98442;Negro;15;6; Despacho ;4;https://www.ikea.com/es/es/p/karmsund-espejo-mesa-negro-00294979/;
+18;Torared;65292;Marron;19;7.6; Despacho ;4;https://www.ikea.com/es/es/p/torared-pantalla-lampara-techo-junco-a-mano-20430382/;
+19;Ikea 365+;25394;Incoloro;4;1.6; Despacho ;4;https://www.ikea.com/es/es/p/ikea-365-botella-tapon-vidrio-incoloro-corcho-90279719/;
+20;Mala;153852;Blanco;4;1.6; Despacho ;4;https://www.ikea.com/es/es/p/mala-rollo-papel-dibujo-70461088/;
+21;Godmorgon;78394;Blanco;49;19.6; Lavabo ;5;https://www.ikea.com/es/es/p/godmorgon-armario-pared-1-puerta-blanco-40281098/;https://www.ikea.com/es/es/ideas/un-armario-de-pared-espacioso-que-realza-tus-articulos-de-aseo-rec1h6ftrao
+22;Vilto;85224;Marron;29;11.6; Lavabo ;5;https://www.ikea.com/es/es/p/vilto-toallero-abedul-00344451/;
+23;Vagson;94284;Gris;6;2.4; Lavabo ;5;https://www.ikea.com/es/es/p/vagsjon-toalla-bano-gris-oscuro-30353608/;
+
