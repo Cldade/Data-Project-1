@@ -26,12 +26,14 @@ ins_db.insert_influencer()
 class insert_in_db_productos:
     def load_csv_Productos(self):
         self.archivo = open(r"Data-Project-1/csv/Productos.csv", encoding="utf8", errors='ignore')
+
         self.filas = csv.reader(self.archivo, delimiter = ";")
         self.lista = list(self.filas)
         del (self.lista[0])
         self.tuplas = tuple (self.lista)
         for rw in self.tuplas:
             print(rw)
+
 
     def insert_productos(self):
         self.connection = psycopg2.connect(host="localhost", database="root",user = "root",password="root")
@@ -43,4 +45,5 @@ class insert_in_db_productos:
 ins_db = insert_in_db_productos()
 ins_db.load_csv_Productos()
 ins_db.insert_productos()
+
 

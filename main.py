@@ -12,4 +12,3 @@ conn.commit()
 count = cursor.rowcount
 print(count, "Record inserted succesfully into table")
 conn.close()
-
