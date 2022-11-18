@@ -27,11 +27,11 @@ CREATE TABLE producto
     color varchar(10) NOT NULL,
     precioVenta decimal NOT NULL,
     coste decimal NOT NULL,
-    categoria varchar(20),
+    categoria varchar(20) NOT NULL,
     id_influencer int,
     link_producto varchar(300),
     link_linea varchar(300),
-    CONSTRAINT producto_pkey PRIMARY KEY (id)
+    CONSTRAINT producto_pkey PRIMARY KEY (id_producto)
 );
 
 alter table producto
@@ -58,7 +58,7 @@ alter table venta
 alter table venta
    add constraint FK_venta_producot
    foreign key (id_producto)
-   references producto(id);
+   references producto(id_producto);
 
 CREATE TABLE factura
 (
