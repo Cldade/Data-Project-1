@@ -5,7 +5,7 @@ import psycopg2
   
 
 def insert_clientes(id):
-    First_name = str(faker.First_name())
+    First_name = str(faker.first_name())
     print(First_name)
     Last_name = str(faker.last_name())
     print(Last_name)
