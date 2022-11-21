@@ -19,9 +19,10 @@ class insert_in_db_influencer:
         self.connection.commit()
         self.connection.close()
 
+'''
 # Esto creo que irá en el main:
 ins_db = insert_in_db_influencer()
 ins_db.load_csv_Influencers()
 ins_db.insert_influencer()
-
+'''
 

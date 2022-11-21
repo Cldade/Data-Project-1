@@ -19,7 +19,9 @@ class insert_in_db_productos:
         self.connection.commit()
         self.connection.close()
 
+'''
 # Esto creo que irá en el main:
 ins_db = insert_in_db_productos()
 ins_db.load_csv_Productos()
 ins_db.insert_productos()
+'''
