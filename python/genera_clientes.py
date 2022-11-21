@@ -5,10 +5,10 @@ import psycopg2
   
 
 def insert_clientes(id):
+    faker = Faker()
     First_name = str(faker.first_name())
-    print(First_name)
     Last_name = str(faker.last_name())
-    print(Last_name)
+    print(f'Cliente con nombre: {First_name} y apellido: {Last_name}')
     conn = psycopg2.connect(host="localhost", database="root",user = "root",password="root")
     cursor = conn.cursor()
     query = "INSERT INTO cliente (id , nombre, apellido) VALUES (%s,%s,%s)"
@@ -16,6 +16,8 @@ def insert_clientes(id):
     cursor.execute(query, record_to_insert)
     conn.commit()
 
+'''
+# (Julio: Esto creo que no es necesario)
 faker = Faker()
 c = 1
 id = 1
@@ -24,7 +26,7 @@ while c < 100:
     c += 1
     id += 1
     time.sleep(0.3)
-
+'''
 
 
 
