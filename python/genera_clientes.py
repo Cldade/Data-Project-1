@@ -17,7 +17,7 @@ def insert_clientes(id):
     conn.commit()
 
 '''
-# (Julio: Esto creo que no es necesario)
+# (Julio: Esto creo que ya no es necesario aquí)
 faker = Faker()
 c = 1
 id = 1
