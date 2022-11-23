@@ -33,6 +33,12 @@ class genera_ventas_antes_influencer:
         id_cliente = random.randint(1,numero[0][0])
         print(f'Cliente: {id_cliente}')
 
+        # Realizamos una consulta para sacar la fecha
+        d1 = datetime.strptime('1/1/2021', '%d/%m/%Y')
+        d2 = datetime.strptime('31/12/2021', '%d/%m/%Y')
+        fecha = self.random_date(d1, d2)
+        print(f'La fecha: {fecha}')
+
         #Generamos un número aleatorio para saber si el cliente solo va a comprar un producto o más de un producto
         numero_productos = random.randint(1,5)
         print(f'El número de productos a comprar es: {numero_productos}')
@@ -52,12 +58,6 @@ class genera_ventas_antes_influencer:
             # Realizamos una consulta para sacar el numero de unidades que se consumen del producto
             unidades_producto = random.randint(1,10)
             print(f'Número de unidades: {unidades_producto}')
-
-            # Realizamos una consulta para sacar la fecha
-            d1 = datetime.strptime('1/1/2021', '%d/%m/%Y')
-            d2 = datetime.strptime('31/12/2021', '%d/%m/%Y')
-            fecha = self.random_date(d1, d2)
-            print(f'La fecha: {fecha}')
 
             #Calculamos el beneficio para IKEA
             cursor.execute("SELECT precio_venta, coste FROM producto WHERE id_producto = %s",[id_producto])

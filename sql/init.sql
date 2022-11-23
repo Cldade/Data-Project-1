@@ -64,8 +64,14 @@ alter table venta
 CREATE TABLE factura
 (
     id bigint NOT NULL,
+    id_venta int NOT NULL,
     fecha date NOT NULL,
     unidades bigint NOT NULL,
     importante_total decimal NOT NULL,
     CONSTRAINT factura_pkey PRIMARY KEY (id)
 );
+
+alter table factura
+   add constraint FK_factura_venta
+   foreign key (id_venta)
+   references venta(id);
