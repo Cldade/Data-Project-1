@@ -1,6 +1,6 @@
 import psycopg2
 
-conn = psycopg2.connect(    host="localhost",    database="ejemplodocker",    user = "postgres",    password="pasword")
+conn = psycopg2.connect(host="localhost",database="ejemplodocker",user = "postgres",password="pasword")
 #Open a cursor to perform database operations
 cursor = conn.cursor()
 #Execute a query
