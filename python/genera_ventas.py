@@ -82,6 +82,12 @@ class genera_ventas_despues_influencer:
         int_delta = (delta.days * 24 * 60 * 60) + delta.seconds
         random_second = randrange(int_delta)
         return start + timedelta(seconds=random_second)
+    
+    # Realizamos una consulta para sacar la fecha
+    d1 = datetime.strptime('1/1/2022', '%d/%m/%Y')
+    d2 = datetime.strptime('3/12/2022', '%d/%m/%Y')
+    fecha = self.random_date(d1, d2)
+    print(f'La fecha: {fecha}')
 
     def producto_ya_comprado(self, id_producto, lista_productos):
         encontrado = False
@@ -103,12 +109,6 @@ class genera_ventas_despues_influencer:
         numero = cursor.fetchall()
         id_cliente = random.randint(1,numero[0][0])
         print(f'Cliente: {id_cliente}')
-
-        # Realizamos una consulta para sacar la fecha
-        d1 = datetime.strptime('1/1/2022', '%d/%m/%Y')
-        d2 = datetime.strptime('3/12/2022', '%d/%m/%Y')
-        fecha = self.random_date(d1, d2)
-        print(f'La fecha: {fecha}')
 
         #Generamos un número aleatorio para saber si el cliente solo va a comprar un producto o más de un producto
         numero_productos = random.randint(1,5)
