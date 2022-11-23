@@ -15,7 +15,7 @@ class insert_in_db_productos:
 
 
     def insert_productos(self):
-        self.connection = psycopg2.connect(host="localhost", database="root",user = "root",password="root")
+        self.connection = psycopg2.connect(host="bbdd_postgresql",port=5433, database="root",user = "root",password="root")
         self.cursor = self.connection.cursor()
         self.cursor.executemany ("insert into producto (id_producto, nombre, stock, color, precio_venta, coste, categoria, id_influencer, link_producto, link_linea) values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", self.productos)
         self.connection.commit()

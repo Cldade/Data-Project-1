@@ -7,7 +7,6 @@ services:
     ports:
       - "5432:5432"
     environment:
-      - DATABASE_HOST=127.0.0.1
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=root
       - POSTGRES_DB=root
@@ -26,6 +25,15 @@ services:
       - postgres
     links:
       - "postgres:pgsql-server"
+    
+  python:
+    build: .
+    volumes:
+       - data:/app/python/
+    links:
+      - "postgres:bbdd_postgresql"
+    depends_on:
+      - pgadmin
    
 
 volumes:

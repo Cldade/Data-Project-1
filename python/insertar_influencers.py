@@ -13,7 +13,7 @@ class insert_in_db_influencer:
             print(rw)
 
     def insert_influencer(self):
-        self.connection = psycopg2.connect(host="localhost", database="root",user = "root",password="root")
+        self.connection = psycopg2.connect(host="bbdd_postgresql",port=5433, database="root",user = "root",password="root")
         self.cursor = self.connection.cursor()
         self.cursor.executemany ("insert into influencer (id, nombre, apellido, porcentaje) values (%s,%s,%s,%s)", self.influencers)
         self.connection.commit()
