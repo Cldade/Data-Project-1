@@ -19,6 +19,16 @@ class genera_ventas_antes_influencer:
                 encontrado = True
                 break
         return encontrado
+    
+    #Función que crea las facturas
+    def insertar_factura(self, id, fecha, numero_productos, total_unidades, importe_total):
+        # Abrimos conexión con el servidor de postgresql
+        conn = psycopg2.connect(host="localhost", database="root",user = "root",password="root")
+        cursor = conn.cursor()
+        query = "INSERT INTO factura (id, id_venta, fecha, numero_productos, unidades, importe_total) values (%s,%s,%s,%s,%s,%s)"
+        cursor.execute(query,(id, id, fecha, numero_productos, total_unidades, importe_total))
+        conn.commit()
+        cursor.close()
 
     def insert_venta(self, id):
 
@@ -43,6 +53,8 @@ class genera_ventas_antes_influencer:
         numero_productos = random.randint(1,5)
         print(f'El número de productos a comprar es: {numero_productos}')
         productos_comprados = list()
+        total_unidades = 0
+        importe_total = 0
         while numero_productos != 0:
 
             # Realizamos una consulta para sacar el numero de producto
@@ -58,6 +70,7 @@ class genera_ventas_antes_influencer:
             # Realizamos una consulta para sacar el numero de unidades que se consumen del producto
             unidades_producto = random.randint(1,10)
             print(f'Número de unidades: {unidades_producto}')
+            total_unidades += unidades_producto
 
             #Calculamos el beneficio para IKEA
             cursor.execute("SELECT precio_venta, coste FROM producto WHERE id_producto = %s",[id_producto])
@@ -65,6 +78,7 @@ class genera_ventas_antes_influencer:
             print(f'Con precio: {precio_coste[0][0]} y coste: {precio_coste[0][1]}')
             beneficioIkea = precio_coste[0][0] - precio_coste[0][1]
             print(f'El benefico para IKEA es de: {beneficioIkea}')
+            importe_total += precio_coste[0][0]
 
             #Insertamos esta compra en la tabla venta
             venta = (id, id_cliente, id_producto, unidades_producto, fecha, 0, beneficioIkea)
@@ -72,6 +86,7 @@ class genera_ventas_antes_influencer:
             conn.commit()
 
             numero_productos -= 1
+        self.insertar_factura(id,fecha,numero_productos, total_unidades, importe_total)
         conn.close()
 
 class genera_ventas_despues_influencer:
@@ -91,6 +106,16 @@ class genera_ventas_despues_influencer:
                 break
         return encontrado
 
+    #Función que crea las facturas
+    def insertar_factura(self, id, fecha, numero_productos, total_unidades, importe_total):
+        # Abrimos conexión con el servidor de postgresql
+        conn = psycopg2.connect(host="localhost", database="root",user = "root",password="root")
+        cursor = conn.cursor()
+        query = "INSERT INTO factura (id, id_venta, fecha, numero_productos, unidades, importe_total) values (%s,%s,%s,%s,%s,%s)"
+        cursor.execute(query,(id, id, fecha, numero_productos, total_unidades, importe_total))
+        conn.commit()
+        cursor.close()
+
     def insert_venta(self, id):
 
         # Abrimos conexión con el servidor de postgresql
@@ -103,11 +128,19 @@ class genera_ventas_despues_influencer:
         numero = cursor.fetchall()
         id_cliente = random.randint(1,numero[0][0])
         print(f'Cliente: {id_cliente}')
+        
+        # Realizamos una consulta para sacar la fecha
+        d1 = datetime.strptime('1/1/2022', '%d/%m/%Y')
+        d2 = datetime.strptime('3/12/2022', '%d/%m/%Y')
+        fecha = self.random_date(d1, d2)
+        print(f'La fecha: {fecha}')
 
         #Generamos un número aleatorio para saber si el cliente solo va a comprar un producto o más de un producto
         numero_productos = random.randint(1,5)
         print(f'El número de productos a comprar es: {numero_productos}')
         productos_comprados = list()
+        total_unidades = 0
+        importe_total = 0
         while numero_productos != 0:
 
             # Realizamos una consulta para sacar el numero de producto
@@ -123,12 +156,7 @@ class genera_ventas_despues_influencer:
             # Realizamos una consulta para sacar el numero de unidades que se consumen del producto
             unidades_producto = random.randint(1,10)
             print(f'Número de unidades: {unidades_producto}')
-
-            # Realizamos una consulta para sacar la fecha
-            d1 = datetime.strptime('1/1/2022', '%d/%m/%Y')
-            d2 = datetime.strptime('3/12/2022', '%d/%m/%Y')
-            fecha = self.random_date(d1, d2)
-            print(f'La fecha: {fecha}')
+            total_unidades += unidades_producto
 
             #Calculamos el beneficio para el influencer
             cursor.execute("SELECT precio_venta, id_influencer FROM producto WHERE id_producto = %s",[id_producto])
@@ -137,7 +165,7 @@ class genera_ventas_despues_influencer:
             porcentaje = cursor.fetchall()
             print(f'Con precio: {precio_influencer[0][0]} y es del influencer: {precio_influencer[0][1]}, y el porcenteje por venta es: {porcentaje[0][0]}')
             beneficioInfluencer = precio_influencer[0][0] * unidades_producto * porcentaje[0][0]
-
+            importe_total += precio_influencer[0][0] * unidades_producto
 
             #Calculamos el beneficio para IKEA
             cursor.execute("SELECT precio_venta, coste FROM producto WHERE id_producto = %s",[id_producto])
@@ -152,7 +180,9 @@ class genera_ventas_despues_influencer:
             conn.commit()
 
             numero_productos -= 1
+        self.insertar_factura(id,fecha, numero_productos, total_unidades, importe_total)
         conn.close()
+    
 
 class numero_venta:
     def numero_ventas(self):
@@ -162,5 +192,6 @@ class numero_venta:
         query = "SELECT COUNT(*) FROM venta"
         cursor.execute(query)
         numero_ventas = cursor.fetchall()
+        cursor.close()
         return numero_ventas[0][0]
 

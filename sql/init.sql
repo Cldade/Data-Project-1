@@ -66,8 +66,9 @@ CREATE TABLE factura
     id bigint NOT NULL,
     id_venta int NOT NULL,
     fecha date NOT NULL,
+    numero_productos int NOT NULL,
     unidades bigint NOT NULL,
-    importante_total decimal NOT NULL,
+    importe_total decimal NOT NULL,
     CONSTRAINT factura_pkey PRIMARY KEY (id)
 );
 
