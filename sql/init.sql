@@ -47,7 +47,8 @@ CREATE TABLE venta
     unidadesProducto INT NOT NULL,
     fecha timestamp NOT NULL,
     beneficioInfluencer decimal,
-    CONSTRAINT venta_pkey PRIMARY KEY (id)
+    beneficio_ikea decimal,
+    CONSTRAINT venta_pkey PRIMARY KEY (id, id_producto)
 );
 
 alter table venta
