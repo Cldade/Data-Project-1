@@ -14,7 +14,6 @@ services:
     volumes:
       - "./sql/init.sql:/docker-entrypoint-initdb.d/init.sql"
  
-  
   pgadmin:
     image: dpage/pgadmin4
     environment:
@@ -26,15 +25,6 @@ services:
       - postgres
     links:
       - "postgres:pgsql-server"
-
-  jupyter:
-    image: 'jupyter/scipy-notebook'
-    ports: 
-      - '8888:8888'
-    volumes:
-      - data:/datafolder
-    command: "start-notebook.sh --NotebookApp.token='' --NotebookApp.password=''"
-    
 
 volumes:
   data:

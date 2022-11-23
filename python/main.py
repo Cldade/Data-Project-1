@@ -1,35 +1,36 @@
-<<<<<<< Updated upstream
-import psycopg2
-=======
 import insertar_influencers as influencer
 import insertar_productos as producto
 import genera_clientes as cliente
 import genera_ventas as venta
-import genera_factura as factura
->>>>>>> Stashed changes
+#import genera_factura as factura
 
+#Guardamos los influencers en la bbdd
+ins_db = influencer.insert_in_db_influencer()
+ins_db.load_csv_Influencers()
+ins_db.insert_influencer()
 
+#Guardamos los productos en la bbdd
+ins_db = producto.insert_in_db_productos()
+ins_db.load_csv_Productos()
+ins_db.insert_productos()
 
-conn = psycopg2.connect(
-    host="localhost",
-    database="root",
-    user = "root",
-    password="root")
-#Open a cursor to perform database operations
-cursor = conn.cursor()
-#Execute a query
-query = "INSERT INTO student (id , name) VALUES (%s,%s)"
-record_to_insert = (6, 'javi')
-cursor.execute(query, record_to_insert)
+#Guardamos clientes aleatorios en bbdd
+clientes = 1
+id_c = 1
+while clientes < 100:
+    cliente.insert_clientes(id_c)
+    clientes += 1
+    id_c += 1
 
+#Guardamos ventas sin datos de los influencers en bbdd
+ventas_antes_influencer = venta.genera_ventas_antes_influencer()
+n = 0
+id_v = 1
+while n < 100:
+    ventas_antes_influencer.insert_venta(id_v)
+    n += 1
+    id_v += 1
 
-<<<<<<< Updated upstream
-
-conn.commit()
-count = cursor.rowcount
-print(count, "Record inserted succesfully into table")
-conn.close()
-=======
 #Guardamos ventas con datos de influencers en bbdd
 ventas_despues_influencer = venta.genera_ventas_despues_influencer()
 numero_v = venta.numero_venta()
@@ -40,6 +41,7 @@ while n < 100:
     n += 1
     id_v_i += 1
 
+'''
 #Guardamos datos en las facturas
 factura = factura.genera_factura()
->>>>>>> Stashed changes
+'''
