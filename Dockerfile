@@ -1,11 +1,15 @@
-FROM python:3.9
+FROM python
 
-RUN mkdir /ikea
-WORKDIR /ikea
+COPY ./python/main.py /app/python/
+COPY ./python/genera_clientes.py /app/python/
+COPY ./python/genera_ventas.py /app/python/
+COPY ./python/insertar_influencers.py /app/python/
+COPY ./python/insertar_productos.py /app/python/
+COPY ./requirements.txt /app/python/
+COPY ./csv/Influencers.csv /app/csv/
+COPY ./csv/Productos.csv /app/csv/
 
-COPY . /ikea
+WORKDIR /app/
+RUN pip install -r python/requirements.txt
 
-RUN pip3 install --upgrade pip
-RUN pip3 install -r requirements.txt
-
-CMD ["python3", "main.py"]
+ENTRYPOINT ["python3", "python/main.py"]
