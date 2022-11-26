@@ -1,20 +1,22 @@
 version: "3.8"
-services:
 
+services:
   postgres:
+    container_name: postgres_container
     image: postgres
-    restart: always
-    ports:
-      - "5432:5432"
     environment:
-      - DATABASE_HOST=127.0.0.1
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=root
       - POSTGRES_DB=root
     volumes:
+      - postgres:/data/postgres
       - "./sql/init.sql:/docker-entrypoint-initdb.d/init.sql"
- 
-  
+    ports:
+      - "5432:5432"
+    networks:
+      - postgres
+    restart: unless-stopped
+
   pgadmin:
     image: dpage/pgadmin4
     environment:
@@ -26,7 +28,25 @@ services:
       - postgres
     links:
       - "postgres:pgsql-server"
+    networks:
+      - postgres
 
+  python:
+    container_name: srv_python
+    build: .
+    restart: "no"
+    depends_on:
+      - postgres
+    networks:
+      - postgres
+
+networks:
+  postgres:
+    external: false
+    name: postgres
+    driver: bridge
 
 volumes:
-  data:
+  postgres:
+
+
