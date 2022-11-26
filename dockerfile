@@ -9,7 +9,7 @@ COPY ./requirements.txt /app/python/
 COPY ./csv/Influencers.csv /app/csv/
 COPY ./csv/Productos.csv /app/csv/
 
-WORKDIR /app/python/
-RUN pip install -r requirements.txt
+WORKDIR /app/
+RUN pip install -r python/requirements.txt
 
-ENTRYPOINT ["python3", "main.py"]
+ENTRYPOINT ["python3", "python/main.py"]
