@@ -23,7 +23,7 @@ class genera_ventas_antes_influencer:
     #Función que crea las facturas
     def insertar_factura(self, id, fecha, numero_productos, total_unidades, importe_total):
         # Abrimos conexión con el servidor de postgresql
-        conn = psycopg2.connect(host="localhost", port=5433, database="root",user = "root",password="root")
+        conn = psycopg2.connect(host="postgres", port=5432, database="root",user = "root",password="root")
         cursor = conn.cursor()
         query = "INSERT INTO factura (id, id_venta, fecha, numero_productos, unidades, importe_total) values (%s,%s,%s,%s,%s,%s)"
         cursor.execute(query,(id, id, fecha, numero_productos, total_unidades, importe_total))
@@ -33,7 +33,7 @@ class genera_ventas_antes_influencer:
     def insert_venta(self, id):
 
         # Abrimos conexión con el servidor de postgresql
-        conn = psycopg2.connect(host="localhost",port=5433, database="root",user = "root",password="root")
+        conn = psycopg2.connect(host="postgres",port=5432, database="root",user = "root",password="root")
         cursor = conn.cursor()
 
         # Realizamos una consulta para sacar el numero de clientes
@@ -109,7 +109,7 @@ class genera_ventas_despues_influencer:
     #Función que crea las facturas
     def insertar_factura(self, id, fecha, numero_productos, total_unidades, importe_total):
         # Abrimos conexión con el servidor de postgresql
-        conn = psycopg2.connect(host="localhost", database="root",user = "root",password="root")
+        conn = psycopg2.connect(host="postgres", database="root",user = "root",password="root")
         cursor = conn.cursor()
         query = "INSERT INTO factura (id, id_venta, fecha, numero_productos, unidades, importe_total) values (%s,%s,%s,%s,%s,%s)"
         cursor.execute(query,(id, id, fecha, numero_productos, total_unidades, importe_total))
@@ -119,7 +119,7 @@ class genera_ventas_despues_influencer:
     def insert_venta(self, id):
 
         # Abrimos conexión con el servidor de postgresql
-        conn = psycopg2.connect(host="localhost", database="root",user = "root",password="root")
+        conn = psycopg2.connect(host="postgres", database="root",user = "root",password="root")
         cursor = conn.cursor()
 
         # Realizamos una consulta para sacar el numero de clientes
@@ -187,11 +187,12 @@ class genera_ventas_despues_influencer:
 class numero_venta:
     def numero_ventas(self):
         # Abrimos conexión con el servidor de postgresql
-        conn = psycopg2.connect(host="localhost", database="root",user = "root",password="root")
+        conn = psycopg2.connect(host="postgres", database="root",user = "root",password="root")
         cursor = conn.cursor()
         query = "SELECT COUNT(*) FROM venta"
         cursor.execute(query)
         numero_ventas = cursor.fetchall()
         cursor.close()
         return numero_ventas[0][0]
+
 
