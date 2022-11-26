@@ -25,7 +25,7 @@ while clientes < 100:
 ventas_antes_influencer = venta.genera_ventas_antes_influencer()
 n = 0
 id_v = 1
-while n < 1000:
+while n < 2000:
     ventas_antes_influencer.insert_venta(id_v)
     n += 1
     id_v += 1
