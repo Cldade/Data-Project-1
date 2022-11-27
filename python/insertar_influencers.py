@@ -4,7 +4,10 @@ import psycopg2
 class insert_in_db_influencer:
 
     def load_csv_Influencers(self):
-        self.archivo = open(r"csv/Influencers.csv", encoding="utf8", errors='ignore')
+        try:
+            self.archivo = open(r"csv/Influencers.csv", encoding="utf8", errors='ignore')
+        except:
+            print("Error intentado abrir el csv de Influencers")
         self.filas = csv.reader(self.archivo, delimiter = ";")
         self.lista = list(self.filas)
         del (self.lista[0])
@@ -22,4 +25,4 @@ class insert_in_db_influencer:
                 self.connection.close()
                 break
             except(Exception, psycopg2.Error) as error:
-                print('Unable to connect', error)
+                print("Error al intentar insertar influencers", error)
