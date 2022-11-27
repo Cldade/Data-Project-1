@@ -1,12 +1,4 @@
 # Data-Project-1
-<<<<<<< Updated upstream
-Primer data project del máster en Data Analytics
-
-- Diferencias entre PostgresSQL y MySQL:
-https://kinsta.com/es/blog/postgresql-vs-mysql/
-
-
-=======
 
 ## Primer data project del máster en Data Analytics
 
@@ -83,4 +75,3 @@ Generamos datos aleatorios de los clientes con el fin de simular las ventas de l
 Modelo de datos descriptivo - ya que se quiere cuantificar las relaciones en los datos. En la siguiente imagen se ve una muestra del modelo de datos de este proyecto. La base de datos esta construida en base a dichas entiendades, relaciones y atributos que ahí se ven.
 
 ![Modelo de datos](Imagenes/modeloDatos.png)
->>>>>>> Stashed changes
