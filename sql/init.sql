@@ -7,6 +7,7 @@ CREATE TABLE cliente
     id bigint NOT NULL,
     nombre varchar(30) ,
     apellido varchar(30),
+    provincia varchar(30),
     CONSTRAINT cliente_pkey PRIMARY KEY (id)
 );
 
