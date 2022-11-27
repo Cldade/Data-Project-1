@@ -3,6 +3,7 @@ import random
 from random import randrange
 from datetime import timedelta,datetime
 
+#Clase que genera ventas sin tener en cuenta los influencers
 class genera_ventas_antes_influencer:
 
     #Función que genera fechas aleatorias entre dos fechas dadas
@@ -12,6 +13,7 @@ class genera_ventas_antes_influencer:
         random_second = randrange(int_delta)
         return start + timedelta(seconds=random_second)
 
+    #Función que busca si un producto ya ha sido comprado por el cliente 
     def producto_ya_comprado(self, id_producto, lista_productos):
         encontrado = False
         for p in lista_productos:
@@ -30,6 +32,7 @@ class genera_ventas_antes_influencer:
         conn.commit()
         cursor.close()
 
+    #Función que calcula la información de las ventass y las inserta
     def insert_venta(self, id):
 
         # Abrimos conexión con el servidor de postgresql
@@ -40,10 +43,11 @@ class genera_ventas_antes_influencer:
         query = "SELECT COUNT(id) FROM cliente"
         cursor.execute(query)
         numero = cursor.fetchall()
+        #Elegimos un cliente aleatorio
         id_cliente = random.randint(1,numero[0][0])
         print(f'Cliente: {id_cliente}')
 
-        # Realizamos una consulta para sacar la fecha
+        #Escogemos una fecha random entre el 01/01/2021 al 31/12/2021
         d1 = datetime.strptime('1/1/2021', '%d/%m/%Y')
         d2 = datetime.strptime('31/12/2021', '%d/%m/%Y')
         fecha = self.random_date(d1, d2)
@@ -51,17 +55,25 @@ class genera_ventas_antes_influencer:
 
         #Generamos un número aleatorio para saber si el cliente solo va a comprar un producto o más de un producto
         numero_productos = random.randint(1,5)
+        n = numero_productos
         print(f'El número de productos a comprar es: {numero_productos}')
+
+        #Creamos una lista con los productos comprados por el cliente
         productos_comprados = list()
+        #Variable que guarda el total de unidades
         total_unidades = 0
+        #Variable que guarda el importe total de la venta
         importe_total = 0
-        while numero_productos != 0:
+
+        #Bucle para calcular los datos de cada venta por producto
+        while n != 0:
 
             # Realizamos una consulta para sacar el numero de producto
             query = "SELECT COUNT(id_producto) FROM producto"
             cursor.execute(query)
             numero = cursor.fetchall()
             id_producto = random.randint(1,numero[0][0])
+            #Buscamos un producto que aun no haya comprado el cliente
             while self.producto_ya_comprado(id_producto, productos_comprados) is True:
                 id_producto = random.randint(1,numero[0][0])
             productos_comprados.append(id_producto)
@@ -85,10 +97,12 @@ class genera_ventas_antes_influencer:
             cursor.execute("insert into venta (id, id_cliente, id_producto, unidades_producto, fecha, beneficio_influencer, beneficio_ikea) values (%s,%s,%s,%s,%s,%s,%s)",venta )
             conn.commit()
 
-            numero_productos -= 1
+            n -= 1
+        #Llamada a la función que inserta la factura de la venta
         self.insertar_factura(id,fecha,numero_productos, total_unidades, importe_total)
         conn.close()
 
+#Clase que genera ventas teniendo en cuenta a los influencers
 class genera_ventas_despues_influencer:
 
     #Función que genera fechas aleatorias entre dos fechas dadas
@@ -98,6 +112,7 @@ class genera_ventas_despues_influencer:
         random_second = randrange(int_delta)
         return start + timedelta(seconds=random_second)
 
+    #Función que busca si un producto ya ha sido comprado por el cliente 
     def producto_ya_comprado(self, id_producto, lista_productos):
         encontrado = False
         for p in lista_productos:
@@ -115,6 +130,7 @@ class genera_ventas_despues_influencer:
         cursor.execute(query,(id, id, fecha, numero_productos, total_unidades, importe_total))
         conn.commit()
         cursor.close()
+
 
     def insert_venta(self, id):
 
@@ -137,11 +153,12 @@ class genera_ventas_despues_influencer:
 
         #Generamos un número aleatorio para saber si el cliente solo va a comprar un producto o más de un producto
         numero_productos = random.randint(1,5)
+        n = numero_productos
         print(f'El número de productos a comprar es: {numero_productos}')
         productos_comprados = list()
         total_unidades = 0
         importe_total = 0
-        while numero_productos != 0:
+        while n != 0:
 
             # Realizamos una consulta para sacar el numero de producto
             query = "SELECT COUNT(id_producto) FROM producto"
@@ -179,7 +196,7 @@ class genera_ventas_despues_influencer:
             cursor.execute("insert into venta (id, id_cliente, id_producto, unidades_producto, fecha, beneficio_influencer, beneficio_ikea) values (%s,%s,%s,%s,%s,%s,%s)",venta )
             conn.commit()
 
-            numero_productos -= 1
+            n -= 1
         self.insertar_factura(id,fecha, numero_productos, total_unidades, importe_total)
         conn.close()
     
