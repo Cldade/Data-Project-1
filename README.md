@@ -2,8 +2,6 @@
 
 ## Primer data project del máster en Data Analytics
 
------
-
 - **Cliente** : IKEA
 
 ![IKEA](./Imagenes/IKEA.png)
@@ -19,8 +17,6 @@
   2. Comparativa de las ventas de Ikea antes de tener las lienas con los influencers, y después de trabajar con ellos.
 
 ## Justificación de las herramientas utilizadas:
-
-----
 
 - **Ingestión, tratemiento y carga de datos (ETL)**
 
@@ -62,15 +58,11 @@ PAra la visualización de los datos generados hemos seleccionado la herramienta 
 
 ## Origen de los datos:
 
----
-
 Utilizamos como dataset una muestra del top 5 influencers más influyentes de España.
 Utilizamos como dataset una muestra de los 23 productos de IKEA más comprados para realizar nuestro estudio.
 Generamos datos aleatorios de los clientes con el fin de simular las ventas de los productos que producen los influencers con el fin de poder ofrecer una respuesta al caso.
 
 ## Modelo de datos
-
----
 
 Modelo de datos descriptivo - ya que se quiere cuantificar las relaciones en los datos. En la siguiente imagen se ve una muestra del modelo de datos de este proyecto. La base de datos esta construida en base a dichas entiendades, relaciones y atributos que ahí se ven.
 
