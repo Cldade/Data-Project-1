@@ -18,7 +18,7 @@
 
 ## Justificación de las herramientas utilizadas:
 
-- **Ingestión, tratemiento y carga de datos (ETL)**
+- **Ingestión, tratamiento y carga de datos (ETL)**
 
 ![python](./Imagenes/python.png)
 
@@ -48,13 +48,13 @@ Con el comando docker compose up se levanta el contenedor.
 
 ![docker](Imagenes/docker.png)
 
-PAra esta parte hemos utilizado la herramienta Docker. El uso de esta herramienta se debe a que sus puntos más fuertes son la portabilidad, el aislamiento, la seguridad y el ahorro de tiempo, por lo que facilita mucho el desarrollo y testeo de aplicaciones.  
+Para esta parte hemos utilizado la herramienta Docker. El uso de esta herramienta se debe a que sus puntos más fuertes son la portabilidad, el aislamiento, la seguridad y el ahorro de tiempo, por lo que facilita mucho el desarrollo y testeo de aplicaciones.  
 
 - **Visualización de los Datos**
   
 ![tableau](Imagenes/tableau.png)
 
-PAra la visualización de los datos generados hemos seleccionado la herramienta Tableau. Mediante una conexión a la base de datos de postgreSQL, se importan los datos a la herramienta Tableau, desde esta plataforma se permite llevar a cabo el uso de los datos y su transformación en gráficos aportando valor a la empresa, visualmente se puede observar la información de una forma clara, sencilla y sintetizada.
+Para la visualización de los datos generados hemos seleccionado la herramienta Tableau. Mediante una conexión a la base de datos de postgreSQL, se importan los datos a la herramienta Tableau, desde esta plataforma se permite llevar a cabo el uso de los datos y su transformación en gráficos aportando valor a la empresa, visualmente se puede observar la información de una forma clara, sencilla y sintetizada.
 
 ## Origen de los datos:
 
