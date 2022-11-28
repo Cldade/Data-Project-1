@@ -25,7 +25,7 @@ CREATE TABLE producto
     nombre varchar(15),
     stock INT NOT NULL,
     color varchar(10) NOT NULL,
-    precioVenta decimal NOT NULL,
+    precio_venta decimal NOT NULL,
     coste decimal NOT NULL,
     categoria varchar(20) NOT NULL,
     id_influencer int,
@@ -44,9 +44,9 @@ CREATE TABLE venta
     id bigint NOT NULL,
     id_cliente bigint NOT NULL,
     id_producto bigint NOT NULL,
-    unidadesProducto INT NOT NULL,
+    unidades_producto INT NOT NULL,
     fecha timestamp NOT NULL,
-    beneficioInfluencer decimal,
+    beneficio_influencer decimal,
     beneficio_ikea decimal,
     CONSTRAINT venta_pkey PRIMARY KEY (id, id_producto)
 );
@@ -64,8 +64,15 @@ alter table venta
 CREATE TABLE factura
 (
     id bigint NOT NULL,
+    id_venta int NOT NULL,
     fecha date NOT NULL,
+    numero_productos int NOT NULL,
     unidades bigint NOT NULL,
-    importanteTotal decimal NOT NULL,
+    importe_total decimal NOT NULL,
     CONSTRAINT factura_pkey PRIMARY KEY (id)
 );
+
+alter table factura
+   add constraint FK_factura_venta
+   foreign key (id_venta)
+   references venta(id);
