@@ -16,7 +16,7 @@ ins_db.insert_productos()
 #Guardamos clientes aleatorios en bbdd
 clientes = 1
 id_c = 1
-while clientes < 2000:
+while clientes < 1500:
     cliente.insert_clientes(id_c)
     clientes += 1
     id_c += 1
@@ -25,7 +25,7 @@ while clientes < 2000:
 ventas_antes_influencer = venta.genera_ventas_antes_influencer()
 n = 0
 id_v = 1
-while n < 8000:
+while n < 2000:
     ventas_antes_influencer.insert_venta(id_v)
     n += 1
     id_v += 1
@@ -35,7 +35,7 @@ ventas_despues_influencer = venta.genera_ventas_despues_influencer()
 numero_v = venta.numero_venta()
 n = 0
 id_v_i = numero_v.numero_ventas() + 1
-while n < 10000:
+while n < 3000:
     ventas_despues_influencer.insert_venta(id_v_i)
     n += 1
     id_v_i += 1

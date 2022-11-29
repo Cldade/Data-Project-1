@@ -24,6 +24,12 @@ Equipo:
 
   2. Comparativa de las ventas de Ikea antes de tener las lienas con los influencers, y después de trabajar con ellos.
 
+
+## Diseño de arquitectura:
+
+![Herramientas](./Imagenes/Herramientas.jpg)
+
+
 ## Justificación de las herramientas utilizadas:
 
 - **Ingestión, tratamiento y carga de datos (ETL)**
@@ -37,6 +43,7 @@ Para poder hacer el proceso de ETL hemos hecho uso del lenguaje Python, el cual 
 3. Respecto a los clientes, en este proyecto se han generado de forma aleatoria, ya que la información de los clientes no tiene mayor interés en este proyecto. Se generan con python y se cargan en la misma base de datos.
 4. Para los datos relacionados con las ventas, generadas de forma aleatoria. Una vez tenemos cargados en la base de datos la información de los 3 puntos anteriores, mediante consultas a la base de datos vamos generando dichas ventas. De esta forma, todo guarda sentido y unión.
 5. A la vez que se van generando las ventas generamos las facturas de los pedidos por cliente, para así tener un resumen completo de la venta, ya que, esta puede tener más de un producto por cliente.
+
 
 - **Almacenamiento de datos**
   
@@ -64,13 +71,24 @@ Para esta parte hemos utilizado la herramienta Docker. El uso de esta herramient
 
 Para la visualización de los datos generados hemos seleccionado la herramienta Tableau. Mediante una conexión a la base de datos de postgreSQL, se importan los datos a la herramienta Tableau, desde esta plataforma se permite llevar a cabo el uso de los datos y su transformación en gráficos aportando valor a la empresa, visualmente se puede observar la información de una forma clara, sencilla y sintetizada.
 
+
 ## Origen de los datos:
 
-Utilizamos como dataset una muestra del top 5 influencers más influyentes de España.
-Utilizamos como dataset una muestra de los 23 productos de IKEA más comprados para realizar nuestro estudio.
-Generamos datos aleatorios de los clientes con el fin de simular las ventas de los productos que producen los influencers con el fin de poder ofrecer una respuesta al caso.
+Utilizamos como dataset una muestra del top 5 de influencers más influyentes de España, se ha configurado tras el análisis de distintos parámetros en launchmetrics:
+- https://www.launchmetrics.com/es/recursos/blog/top-influencers-espanolas-miv
 
-## Modelo de datos
+Así mismo, utilizamos como dataset una muestra de 23 de los productos más comprados de IKEA para realizar nuestro estudio, divididos en distintas líneas de venta ligadas a la inspiración de dichos influencers:
+- https://www.ikea.com/es/es/ideas/la-clave-para-dormir-mejor-cada-noche-recgoxblj9z
+- https://www.ikea.com/es/es/ideas/ulriksberg-brimnes-landskrona-recj2owtbf6
+- https://www.ikea.com/es/es/ideas/ekedalen-odger-nymane-evedal-rec34go5gad
+- https://www.ikea.com/es/es/ideas/una-mesa-que-sigue-el-ritmo-de-tu-vida-recch3vozhy
+- https://www.ikea.com/es/es/ideas/un-armario-de-pared-espacioso-que-realza-tus-articulos-de-aseo-rec1h6ftrao
+
+
+Por último, generamos datos aleatorios de los clientes con el fin de simular las ventas de los productos que producen los influencers con el fin de poder ofrecer una respuesta al caso.
+
+
+## Modelo de datos:
 
 Modelo de datos descriptivo - ya que se quiere cuantificar las relaciones en los datos. En la siguiente imagen se ve una muestra del modelo de datos de este proyecto. La base de datos esta construida en base a dichas entiendades, relaciones y atributos que ahí se ven.
 
