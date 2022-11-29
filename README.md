@@ -8,8 +8,9 @@ Equipo:
   - Javier Riaza Gallart
   - Alejandro Palanca Albert
   - Julio Sahuquillo Huerta 
+  
 
-- **Cliente** : IKEA
+## **Cliente** : IKEA
 
 ![IKEA](./Imagenes/IKEA.png)
 
