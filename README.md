@@ -2,6 +2,13 @@
 
 ## Primer data project del máster en Data Analytics
 
+Equipo:
+  - Claudia Darás de la Fuente
+  - Rafael Cuquerella Cots
+  - Javier Riaza Gallart
+  - Alejandro Palanca Albert
+  - Julio Sahuquillo Huerta 
+
 - **Cliente** : IKEA
 
 ![IKEA](./Imagenes/IKEA.png)
