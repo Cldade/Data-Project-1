@@ -48,9 +48,9 @@ Mediante la conexión al puerto `localhost` en el navegador se permite la visual
 
 - `Cuenta: "root@root.com"`
 
-- `Correo: "root"`
+- `Contraseña: "root"`
 
-Con el comando docker compose up se levanta el contenedor.
+Con el comando "docker compose up" se levanta el contenedor.
 
 - **Contenerización**
 
