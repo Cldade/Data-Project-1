@@ -88,7 +88,7 @@ class genera_ventas_antes_influencer:
             cursor.execute("SELECT precio_venta, coste FROM producto WHERE id_producto = %s",[id_producto])
             precio_coste = cursor.fetchall()
             print(f'Con precio: {precio_coste[0][0]} y coste: {precio_coste[0][1]}')
-            beneficioIkea = precio_coste[0][0] - precio_coste[0][1]
+            beneficioIkea = (precio_coste[0][0] - precio_coste[0][1]) * unidades_producto
             print(f'El benefico para IKEA es de: {beneficioIkea}')
             importe_total += precio_coste[0][0]
 
